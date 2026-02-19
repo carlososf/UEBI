@@ -1,0 +1,115 @@
+'use client';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
+
+const projects = [
+    {
+        id: 1,
+        name: 'ARTE VET',
+        cat: 'Medicina Veterinária',
+        image: '/portfolio-vet.png',
+        size: 'col-span-1 md:col-span-2',
+        stats: { problem: 'Site antigo', solution: 'Redesign Premium', result: '+ Leads' }
+    },
+    {
+        id: 2,
+        name: 'PLÁSTICOS GT',
+        cat: 'Indústria',
+        image: '/portfolio-garrafas.png',
+        size: 'col-span-1',
+        stats: { problem: 'Catálogo Físico', solution: 'Vitrine Digital', result: 'Alcance B2B' }
+    },
+    {
+        id: 3,
+        name: 'INJESOPRO',
+        cat: 'Tecnologia Automotiva',
+        image: '/portfolio-injesopro.png',
+        size: 'col-span-1 md:col-span-2', // Making this one large too for balance
+        stats: { problem: 'Sem Presença', solution: 'E-commerce', result: 'Vendas Online' }
+    }
+];
+
+export default function Portfolio() {
+    return (
+        <section className="py-32 bg-[#050505] relative text-white" id="portfolio">
+            <div className="max-w-7xl mx-auto px-4 mb-20 flex flex-col md:flex-row items-end justify-between gap-8">
+                <div>
+                    <span className="text-[#39FF14] font-mono text-xs tracking-widest uppercase mb-4 block">// SELECTED WORK</span>
+                    <h2 className="text-4xl md:text-7xl font-black tracking-tighter leading-[0.9]">
+                        CASES QUE <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">FALAM POR SI.</span>
+                    </h2>
+                </div>
+                <p className="text-white/40 max-w-sm text-sm font-light leading-relaxed">
+                    Nossos projetos combinam estética premium com engenharia de conversão.
+                </p>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {projects.map((p, i) => (
+                    <motion.div
+                        key={p.id}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className={`${p.size} min-h-[400px] md:min-h-[500px] relative group rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A]`}
+                    >
+                        {/* Image Background */}
+                        <div className="absolute inset-0">
+                            <Image
+                                src={p.image}
+                                alt={p.name}
+                                fill
+                                className="object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                        </div>
+
+                        {/* Content Container */}
+                        <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                            <div className="flex justify-between items-start">
+                                <span className="px-3 py-1 rounded-full border border-white/10 bg-black/40 backdrop-blur-md text-[10px] font-mono uppercase tracking-widest group-hover:border-[#39FF14]/50 group-hover:text-[#39FF14] transition-colors duration-500">
+                                    {p.cat}
+                                </span>
+                                <div className="w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center -rotate-45 group-hover:rotate-0 group-hover:bg-[#39FF14] group-hover:text-black group-hover:border-[#39FF14] transition-all duration-500 backdrop-blur-sm">
+                                    <ArrowUpRight className="w-5 h-5" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 className="text-4xl font-bold mb-4 group-hover:translate-x-2 transition-transform duration-500 tracking-tight">{p.name}</h3>
+
+                                {/* Hidden Details - Reveal on Hover */}
+                                <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500">
+                                    <div className="pt-6 border-t border-white/20 grid grid-cols-3 gap-4 text-xs">
+                                        <div>
+                                            <span className="text-white/40 block mb-1 uppercase tracking-wider">Problema</span>
+                                            <span className="font-semibold">{p.stats.problem}</span>
+                                        </div>
+                                        <div>
+                                            <span className="text-white/40 block mb-1 uppercase tracking-wider">Solução</span>
+                                            <span className="font-semibold text-[#39FF14]">{p.stats.solution}</span>
+                                        </div>
+                                        <div>
+                                            <span className="text-white/40 block mb-1 uppercase tracking-wider">Resultado</span>
+                                            <span className="font-semibold">{p.stats.result}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+
+            <div className="text-center mt-24">
+                <button className="relative px-8 py-4 bg-transparent text-white font-bold uppercase tracking-widest text-sm group overflow-hidden">
+                    <span className="relative z-10 group-hover:text-black transition-colors duration-300">Ver Todos os Projetos</span>
+                    <div className="absolute inset-0 bg-[#39FF14] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
+                    <div className="absolute inset-0 border border-white/20 group-hover:border-[#39FF14] transition-colors duration-300 pointer-events-none" />
+                </button>
+            </div>
+        </section>
+    );
+}
