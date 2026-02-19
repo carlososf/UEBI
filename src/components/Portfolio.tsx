@@ -2,13 +2,16 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
+import portfolioVet from '@/assets/portfolio-vet.png';
+import portfolioGarrafas from '@/assets/portfolio-garrafas.png';
+import portfolioInjesopro from '@/assets/portfolio-injesopro.png';
 
 const projects = [
     {
         id: 1,
         name: 'ARTE VET',
         cat: 'Medicina Veterinária',
-        image: '/portfolio-vet.png',
+        image: portfolioVet,
         size: 'col-span-1 md:col-span-2',
         stats: { problem: 'Site antigo', solution: 'Redesign Premium', result: '+ Leads' }
     },
@@ -16,7 +19,7 @@ const projects = [
         id: 2,
         name: 'PLÁSTICOS GT',
         cat: 'Indústria',
-        image: '/portfolio-garrafas.png',
+        image: portfolioGarrafas,
         size: 'col-span-1',
         stats: { problem: 'Catálogo Físico', solution: 'Vitrine Digital', result: 'Alcance B2B' }
     },
@@ -24,7 +27,7 @@ const projects = [
         id: 3,
         name: 'INJESOPRO',
         cat: 'Tecnologia Automotiva',
-        image: '/portfolio-injesopro.png',
+        image: portfolioInjesopro,
         size: 'col-span-1 md:col-span-2', // Making this one large too for balance
         stats: { problem: 'Sem Presença', solution: 'E-commerce', result: 'Vendas Online' }
     }
