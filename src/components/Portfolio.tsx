@@ -1,11 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
-import portfolioVet from '@/assets/portfolio-vet.png';
-import portfolioGarrafas from '@/assets/portfolio-garrafas.png';
-import portfolioInjesopro from '@/assets/portfolio-injesopro.png';
 
 const categories = [
     'Todos',
@@ -22,27 +18,51 @@ const categories = [
 const projects = [
     {
         id: 1,
-        name: 'ARTE VET',
+        name: 'VetCare',
         cat: 'Saúde',
-        image: portfolioVet,
+        link: 'https://carlososf.github.io/vetcare/',
         size: 'col-span-1 md:col-span-2',
         stats: { problem: 'Site antigo', solution: 'Redesign Premium', result: '+ Leads' }
     },
     {
         id: 2,
-        name: 'PLÁSTICOS GT',
+        name: 'PlasticoGT',
         cat: 'Indústria',
-        image: portfolioGarrafas,
+        link: 'https://carlososf.github.io/Garrafas-GT/',
         size: 'col-span-1',
         stats: { problem: 'Catálogo Físico', solution: 'Vitrine Digital', result: 'Alcance B2B' }
     },
     {
         id: 3,
-        name: 'INJESOPRO',
-        cat: 'E-commerce',
-        image: portfolioInjesopro,
+        name: 'Injesopro',
+        cat: 'Indústria',
+        link: 'https://injesopro.com.br/',
         size: 'col-span-1 md:col-span-2',
         stats: { problem: 'Sem Presença', solution: 'E-commerce', result: 'Vendas Online' }
+    },
+    {
+        id: 4,
+        name: 'L´atelier',
+        cat: 'Beleza',
+        link: 'https://carlososf.github.io/sal-o-de-beleza-v1/',
+        size: 'col-span-1',
+        stats: { problem: 'Marca Offline', solution: 'Posicionamento Digital', result: 'Agendamentos' }
+    },
+    {
+        id: 5,
+        name: 'Maison Elysian',
+        cat: 'Beleza',
+        link: 'https://carlososf.github.io/sal-o-de-beleza-v2/',
+        size: 'col-span-1 md:col-span-2',
+        stats: { problem: 'Baixa Conversão', solution: 'UX Premium', result: 'Clientes High-Ticket' }
+    },
+    {
+        id: 6,
+        name: 'ESTRATÉGIA SERENA',
+        cat: 'Advogado',
+        link: 'https://carlososf.github.io/advogado-v1/',
+        size: 'col-span-1 md:col-span-2',
+        stats: { problem: 'Falta de Autoridade', solution: 'Experiência Imersiva', result: 'Leads Qualificados' }
     }
 ];
 
@@ -88,24 +108,26 @@ export default function Portfolio() {
             <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <AnimatePresence mode="popLayout">
                     {filteredProjects.map((p, i) => (
-                        <motion.div
+                        <motion.a
+                            href={p.link}
+                            target="_blank"
                             key={p.id}
                             layout
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.4 }}
-                            className={`${p.size} min-h-[350px] md:min-h-[500px] relative group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-black dark:bg-[#0A0A0A] text-white transition-colors duration-500`}
+                            className={`${p.size} min-h-[350px] md:min-h-[500px] relative group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-black dark:bg-[#0A0A0A] text-white transition-colors duration-500 case-card block cursor-pointer`}
                         >
                             {/* Image Background */}
                             <div className="absolute inset-0">
-                                <Image
-                                    src={p.image}
-                                    alt={p.name}
-                                    fill
-                                    className="object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700"
+                                <img
+                                    src={`https://image.thum.io/get/width/1200/${p.link}`}
+                                    alt={`Preview do projeto ${p.name}`}
+                                    loading="lazy"
+                                    className="w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 pointer-events-none"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
                             </div>
 
                             {/* Content Container */}
@@ -141,7 +163,7 @@ export default function Portfolio() {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </motion.a>
                     ))}
                 </AnimatePresence>
                 {filteredProjects.length === 0 && (
