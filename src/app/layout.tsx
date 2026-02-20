@@ -20,7 +20,29 @@ export const metadata: Metadata = {
   title: 'UEBI STUDIO | Sites do Futuro',
   description: 'Transformo presença digital em máquina de conversão: site ultra rápido, visual premium e automações.',
   icons: {
-    icon: '/favicon.ico', // Placeholder
+    icon: '/logo-uebi.png',
+    apple: '/logo-uebi.png',
+  },
+  openGraph: {
+    title: 'UEBI STUDIO | Sites do Futuro',
+    description: 'Transformo presença digital em máquina de conversão: site ultra rápido, visual premium e automações.',
+    url: 'https://uebistudio.com.br',
+    siteName: 'UEBI STUDIO',
+    images: [
+      {
+        url: '/logo-uebi.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'pt-BR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UEBI STUDIO | Sites do Futuro',
+    description: 'Transformo presença digital em máquina de conversão: site ultra rápido, visual premium e automações.',
+    images: ['/logo-uebi.png'],
   },
 };
 

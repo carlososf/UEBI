@@ -138,7 +138,7 @@ export default function Portfolio() {
                             {/* Image Background */}
                             <div className="absolute inset-0">
                                 <img
-                                    src={`https://image.thum.io/get/width/1200/${p.link}`}
+                                    src={`https://image.thum.io/get/width/1200/wait/3/${p.link}`}
                                     alt={`Preview do projeto ${p.name}`}
                                     loading="lazy"
                                     className="w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 pointer-events-none"
