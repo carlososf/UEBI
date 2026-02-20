@@ -138,12 +138,19 @@ export default function Portfolio() {
                             {/* Image Background */}
                             <div className="absolute inset-0">
                                 <img
-                                    src={`https://image.thum.io/get/width/1200/wait/3/${p.link}`}
+                                    src={`https://s.wordpress.com/mshots/v1/${encodeURIComponent(p.link)}?w=1200`}
                                     alt={`Preview do projeto ${p.name}`}
                                     loading="lazy"
                                     className="w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 pointer-events-none"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
+
+                                {/* Ver ao Vivo Badge */}
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                                    <span className="px-6 py-2 bg-[#39FF14] text-black font-black text-xs tracking-widest uppercase rounded-full shadow-[0_0_20px_rgba(57,255,20,0.4)]">
+                                        VER AO VIVO
+                                    </span>
+                                </div>
                             </div>
 
                             {/* Content Container */}
