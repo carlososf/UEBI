@@ -13,9 +13,9 @@ const services = [
 
 export default function Services() {
     return (
-        <section className="py-32 px-4 bg-white relative overflow-hidden" id="services">
+        <section className="py-32 px-4 bg-white dark:bg-[#0A0A0A] relative overflow-hidden transition-colors duration-500" id="services">
             {/* Subtle Grid Background */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:24px_24px]" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px] transition-colors duration-500" />
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <motion.div
@@ -24,11 +24,11 @@ export default function Services() {
                     viewport={{ once: true }}
                     className="mb-20 text-center"
                 >
-                    <span className="text-[#10A000] font-mono text-xs tracking-widest uppercase mb-4 block">// CAPABILITIES</span>
-                    <h2 className="text-4xl md:text-5xl font-black text-black mb-6 tracking-tight">
-                        ECOSSISTEMA <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10A000] to-emerald-600">DIGITAL COMPLETO</span>.
+                    <span className="text-[#10A000] dark:text-[#39FF14] font-mono text-xs tracking-widest uppercase mb-4 block transition-colors duration-500">// CAPABILITIES</span>
+                    <h2 className="text-4xl md:text-5xl font-black text-black dark:text-white mb-6 tracking-tight transition-colors duration-500">
+                        ECOSSISTEMA <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10A000] dark:from-[#39FF14] to-emerald-600 transition-colors duration-500">DIGITAL COMPLETO</span>.
                     </h2>
-                    <p className="text-lg md:text-xl text-black/50 max-w-2xl mx-auto font-light leading-relaxed">
+                    <p className="text-lg md:text-xl text-black/50 dark:text-white/50 max-w-2xl mx-auto font-light leading-relaxed transition-colors duration-500">
                         Do design à infraestrutura, entregamos soluções que posicionam sua marca no topo.
                     </p>
                 </motion.div>
@@ -41,16 +41,16 @@ export default function Services() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="group p-6 md:p-8 rounded-xl border border-black/5 bg-black/[0.02] hover:bg-black/[0.04] hover:border-[#39FF14]/50 transition-all duration-500 relative overflow-hidden"
+                            className="group p-6 md:p-8 rounded-xl border border-black/5 dark:border-white/5 bg-black/[0.02] dark:bg-white/[0.02] hover:bg-black/[0.04] dark:hover:bg-white/[0.04] hover:border-[#10A000]/50 dark:hover:border-[#39FF14]/30 transition-all duration-500 relative overflow-hidden"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#39FF14]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#10A000]/5 dark:from-[#39FF14]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                             <div className="relative z-10">
-                                <div className="mb-6 inline-flex p-3 rounded-lg bg-black/5 group-hover:bg-[#39FF14] group-hover:text-black transition-colors duration-300">
+                                <div className="mb-6 inline-flex p-3 rounded-lg bg-black/5 dark:bg-white/5 group-hover:bg-[#10A000] dark:group-hover:bg-[#39FF14] group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
                                     <s.icon className="w-6 h-6" strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-xl font-bold text-black mb-3 group-hover:text-[#10A000] transition-colors">{s.title}</h3>
-                                <p className="text-black/60 text-sm leading-relaxed font-light group-hover:text-black/80 transition-colors">{s.desc}</p>
+                                <h3 className="text-xl font-bold text-black dark:text-white mb-3 group-hover:text-[#10A000] dark:group-hover:text-[#39FF14] transition-colors">{s.title}</h3>
+                                <p className="text-black/60 dark:text-white/40 text-sm leading-relaxed font-light group-hover:text-black/80 dark:group-hover:text-white/60 transition-colors">{s.desc}</p>
                             </div>
                         </motion.div>
                     ))}

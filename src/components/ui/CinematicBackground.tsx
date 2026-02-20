@@ -1,76 +1,68 @@
 'use client';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const FloatingCard = ({ className, delay = 0 }: any) => (
-    <motion.div
-        initial={{ opacity: 0, y: 30, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1.5, delay, ease: [0.22, 1, 0.36, 1] }}
-        className={`absolute border border-black/5 bg-[#F5F5F5]/50 backdrop-blur-2xl rounded-2xl p-6 shadow-2xl ${className}`}
-    >
-        <div className="flex items-center gap-3 mb-4 border-b border-black/5 pb-3">
-            <div className="w-2.5 h-2.5 rounded-full bg-black/10" />
-            <div className="w-16 h-2 bg-black/5 rounded-full" />
-        </div>
-        <div className="space-y-3 opacity-60">
-            <div className="h-2 bg-gradient-to-r from-[#10A000]/20 to-transparent rounded w-3/4" />
-            <div className="h-2 bg-black/5 rounded w-1/2" />
-        </div>
-    </motion.div>
-);
 
 export default function CinematicBackground() {
-    const { scrollY } = useScroll();
-    const yParallax = useTransform(scrollY, [0, 1000], [0, -150]);
-
     return (
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-[#FAFAFA]">
-            {/* 1. Deep Atmospheric Base */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#eee] via-[#FAFAFA] to-[#FAFAFA]" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* 1. Base Layer: Solid Technical Background */}
+            <div className="absolute inset-0 bg-[#FAFAFA] dark:bg-[#0A0A0A] transition-colors duration-500" />
 
-            {/* 2. Cinematic Volumetric Lighting (Subtle Green) */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2 }}
-                className="absolute top-[-20%] left-[20%] w-[800px] h-[800px] bg-[#39FF14] opacity-[0.05] blur-[180px] rounded-full mix-blend-multiply"
-            />
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2, delay: 0.5 }}
-                className="absolute bottom-[-20%] right-[10%] w-[600px] h-[600px] bg-black opacity-[0.02] blur-[150px] rounded-full mix-blend-multiply"
-            />
+            {/* 2. Structured Tech Grid */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000010_1px,transparent_1px),linear-gradient(to_bottom,#00000010_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] opacity-100 dark:opacity-50 transition-colors duration-500" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000010_1px,transparent_1px),linear-gradient(to_bottom,#00000010_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:160px_160px] opacity-100 dark:opacity-20 transition-colors duration-500" />
 
-            {/* 3. Minimal Tech Grid (Perspective) */}
-            <div
-                className="absolute inset-x-0 bottom-0 h-[60vh] opacity-[0.06]"
-                style={{
-                    backgroundImage: `linear-gradient(to right, #000000 1px, transparent 1px),
-                                      linear-gradient(to bottom, #000000 1px, transparent 1px)`,
-                    backgroundSize: '80px 80px',
-                    transform: 'perspective(1200px) rotateX(70deg) translateY(100px) translateZ(-300px)',
-                    maskImage: 'linear-gradient(to top, black, transparent 80%)'
+            {/* 3. Deep Architectural Gradients */}
+            {/* Main top structural light */}
+            <div className="absolute -top-[20%] right-0 w-[70vw] h-[80vh] bg-[#10A000]/10 dark:bg-[#39FF14]/10 rounded-full blur-[100px] opacity-60 dark:opacity-80 mix-blend-multiply dark:mix-blend-screen transition-colors duration-500" />
+
+            {/* Bottom left counter-balance fill */}
+            <div className="absolute -bottom-[10%] -left-[10%] w-[50vw] h-[60vh] bg-black/10 dark:bg-emerald-900/20 rounded-full blur-[120px] opacity-40 dark:opacity-50 mix-blend-multiply dark:mix-blend-screen transition-colors duration-500" />
+
+            {/* 4. Elegant Vignette (focuses attention to center) */}
+            <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-[#FAFAFA]/90 dark:to-[#0A0A0A]/90 dark:opacity-90 transition-colors duration-500" />
+
+            {/* 5. Minimalist Floating Architectural Elements */}
+            <motion.div
+                animate={{
+                    y: [0, -20, 0],
+                    rotate: [0, 2, 0]
                 }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute top-[15%] left-[10%] w-[30vh] md:w-[25vw] aspect-square rounded-[40px] border border-black/10 dark:border-white/5 bg-gradient-to-br from-black/5 dark:from-white/5 to-transparent backdrop-blur-3xl opacity-30 shadow-2xl transition-colors duration-500"
             />
 
-            {/* 4. Floating Elements (Reduced Clutter - Just 2 minimal cards) */}
-            <motion.div style={{ y: yParallax }} className="absolute inset-0 w-full h-full perspective-[1200px]">
-                {/* Card 1: Main Interface Element */}
-                <FloatingCard
-                    className="top-[25%] -right-[5%] md:right-[10%] w-80 h-48 opacity-40 rotate-[-12deg] z-0"
-                    delay={0.5}
-                />
+            <motion.div
+                animate={{
+                    y: [0, 30, 0],
+                    x: [0, -10, 0],
+                    rotate: [0, -2, 0]
+                }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute bottom-[20%] right-[5%] w-[40vh] md:w-[35vw] aspect-[4/3] rounded-[60px] border border-black/10 dark:border-[#39FF14]/10 bg-gradient-to-tl from-black/5 dark:from-[#39FF14]/5 to-transparent backdrop-blur-3xl opacity-20 shadow-2xl dark:shadow-[#39FF14]/5 transition-colors duration-500"
+            />
 
-                {/* Card 2: Background Element */}
-                <FloatingCard
-                    className="bottom-[15%] -left-[5%] md:left-[5%] w-64 h-40 opacity-20 rotate-[12deg] z-0"
-                    delay={1}
-                />
-            </motion.div>
+            {/* 6. Precision Crosshairs / Registration marks */}
+            <div className="absolute top-[10%] left-[10%] w-6 h-6 border-l border-t border-black/20 dark:border-white/20 transition-colors duration-500" />
+            <div className="absolute top-[10%] right-[10%] w-6 h-6 border-r border-t border-black/20 dark:border-white/20 transition-colors duration-500" />
+            <div className="absolute bottom-[10%] left-[10%] w-6 h-6 border-l border-b border-black/20 dark:border-white/20 transition-colors duration-500" />
+            <div className="absolute bottom-[10%] right-[10%] w-6 h-6 border-r border-b border-black/20 dark:border-white/20 transition-colors duration-500" />
 
-            {/* 5. Vignette for Focus */}
-            <div className="absolute inset-0 bg-[radial-gradient(transparent_0%,_#FAFAFA_80%)] z-10" />
+            {/* Center target UI */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-black/5 dark:border-white/5 rounded-full opacity-50 dark:opacity-30 flex items-center justify-center transition-colors duration-500">
+                <div className="w-[1px] h-4 absolute top-0 bg-black/20 dark:bg-white/20 transition-colors duration-500" />
+                <div className="w-[1px] h-4 absolute bottom-0 bg-black/20 dark:bg-white/20 transition-colors duration-500" />
+                <div className="w-4 h-[1px] absolute left-0 bg-black/20 dark:bg-white/20 transition-colors duration-500" />
+                <div className="w-4 h-[1px] absolute right-0 bg-black/20 dark:bg-white/20 transition-colors duration-500" />
+                <div className="w-1 h-1 rounded-full bg-[#10A000]/30 dark:bg-[#39FF14]/30 transition-colors duration-500" />
+            </div>
+
+            {/* 7. Subtle vertical tracking lines */}
+            <div className="absolute left-[33%] top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-black/10 dark:via-white/5 to-transparent transition-colors duration-500" />
+            <div className="absolute right-[33%] top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-black/10 dark:via-white/5 to-transparent transition-colors duration-500" />
+
+            {/* 8. Modern Noise Overlay (for texture) */}
+            <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
         </div>
     );
 }

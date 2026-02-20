@@ -6,7 +6,7 @@ import Contact from '@/components/Contact';
 
 export default function Home() {
   return (
-    <main className="bg-white text-black relative flex flex-col w-full selection:bg-[#39FF14] selection:text-white">
+    <main className="bg-white dark:bg-black text-black dark:text-white relative flex flex-col w-full selection:bg-[#39FF14] selection:text-white dark:selection:text-black transition-colors duration-500">
       <Hero />
       <Services />
       <Process />
@@ -15,3 +15,4 @@ export default function Home() {
     </main>
   );
 }
+

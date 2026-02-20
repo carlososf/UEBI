@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Sora, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const sora = Sora({
   subsets: ['latin'],
@@ -28,10 +30,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${sora.variable} ${jetbrains.variable}`}>
-      <body className="font-sans antialiased bg-black text-white selection:bg-[#39FF14] selection:text-black overflow-x-hidden">
-        {children}
-        <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+    <html lang="pt-BR" className={`${sora.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased bg-white dark:bg-black text-black dark:text-white selection:bg-[#39FF14] selection:text-black overflow-x-hidden transition-colors duration-500">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+          <ThemeToggle />
+          <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        </ThemeProvider>
       </body>
     </html>
   );
