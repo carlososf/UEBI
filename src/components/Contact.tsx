@@ -22,7 +22,7 @@ export default function Contact() {
                 </motion.div>
 
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-24">
-                    <a href="https://wa.me/5511999999999" className="px-12 py-6 bg-[#39FF14] text-black font-bold text-xl rounded-full hover:bg-white hover:shadow-[0_0_50px_rgba(57,255,20,0.5)] transition-all duration-300 flex items-center gap-3 group">
+                    <a href="https://wa.me/5511972362554" className="px-12 py-6 bg-[#39FF14] text-black font-bold text-xl rounded-full hover:bg-white hover:shadow-[0_0_50px_rgba(57,255,20,0.5)] transition-all duration-300 flex items-center gap-3 group">
                         <MessageCircle className="w-6 h-6" /> INICIAR PROJETO
                     </a>
                     <a href="#portfolio" className="px-12 py-6 border border-white/10 text-white font-bold text-xl rounded-full hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-3">
@@ -32,12 +32,10 @@ export default function Contact() {
 
                 <div className="flex flex-col md:flex-row justify-between items-center w-full border-t border-white/5 pt-12 text-white/40 text-sm gap-8">
                     <div className="flex gap-8">
-                        <a href="#" className="hover:text-[#39FF14] transition-colors">INSTAGRAM</a>
-                        <a href="#" className="hover:text-[#39FF14] transition-colors">LINKEDIN</a>
-                        <a href="#" className="hover:text-[#39FF14] transition-colors">GITHUB</a>
+                        <a href="http://instagram.com/uebi.studio/" target="_blank" rel="noopener noreferrer" className="hover:text-[#39FF14] transition-colors">INSTAGRAM</a>
                     </div>
-                    <p className="font-mono">
-                        © 2024 UEBI STUDIO. ALL RIGHTS RESERVED.
+                    <p className="font-mono text-center md:text-left">
+                        © 2026 UEBI STUDIO. ALL RIGHTS RESERVED.
                     </p>
                 </div>
             </div>

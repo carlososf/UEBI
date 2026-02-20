@@ -28,12 +28,12 @@ export default function Services() {
                     <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
                         ECOSSISTEMA <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#39FF14] to-emerald-600">DIGITAL COMPLETO</span>.
                     </h2>
-                    <p className="text-xl text-white/50 max-w-2xl mx-auto font-light">
+                    <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto font-light leading-relaxed">
                         Do design à infraestrutura, entregamos soluções que posicionam sua marca no topo.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {services.map((s, i) => (
                         <motion.div
                             key={i}
@@ -41,7 +41,7 @@ export default function Services() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="group p-8 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#39FF14]/30 transition-all duration-500 relative overflow-hidden"
+                            className="group p-6 md:p-8 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#39FF14]/30 transition-all duration-500 relative overflow-hidden"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-[#39FF14]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

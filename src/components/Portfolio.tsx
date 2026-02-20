@@ -58,7 +58,7 @@ export default function Portfolio() {
             <div className="max-w-7xl mx-auto px-4 mb-12 flex flex-col md:flex-row items-end justify-between gap-8">
                 <div>
                     <span className="text-[#39FF14] font-mono text-xs tracking-widest uppercase mb-4 block">// SELECTED WORK</span>
-                    <h2 className="text-4xl md:text-7xl font-black tracking-tighter leading-[0.9]">
+                    <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[1] md:leading-[0.9]">
                         CASES QUE <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">FALAM POR SI.</span>
                     </h2>
                 </div>
@@ -75,8 +75,8 @@ export default function Portfolio() {
                             key={category}
                             onClick={() => setActiveCategory(category)}
                             className={`px-6 py-2.5 rounded-full text-sm font-mono tracking-wider transition-all duration-300 border ${activeCategory === category
-                                    ? 'bg-[#39FF14] text-black border-[#39FF14]'
-                                    : 'bg-black/50 text-white/60 border-white/10 hover:border-white/30 hover:text-white'
+                                ? 'bg-[#39FF14] text-black border-[#39FF14]'
+                                : 'bg-black/50 text-white/60 border-white/10 hover:border-white/30 hover:text-white'
                                 }`}
                         >
                             {category}
@@ -95,7 +95,7 @@ export default function Portfolio() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.4 }}
-                            className={`${p.size} min-h-[400px] md:min-h-[500px] relative group rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A]`}
+                            className={`${p.size} min-h-[350px] md:min-h-[500px] relative group rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A]`}
                         >
                             {/* Image Background */}
                             <div className="absolute inset-0">
@@ -120,7 +120,7 @@ export default function Portfolio() {
                                 </div>
 
                                 <div>
-                                    <h3 className="text-4xl font-bold mb-4 group-hover:translate-x-2 transition-transform duration-500 tracking-tight">{p.name}</h3>
+                                    <h3 className="text-3xl md:text-4xl font-bold mb-4 group-hover:translate-x-2 transition-transform duration-500 tracking-tight">{p.name}</h3>
 
                                     {/* Hidden Details - Reveal on Hover */}
                                     <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500">

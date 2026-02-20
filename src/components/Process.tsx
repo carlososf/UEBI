@@ -32,17 +32,17 @@ export default function Process() {
                         <span className="text-xs tracking-widest text-[#39FF14] font-mono uppercase">Assessoria Premium</span>
                     </div>
 
-                    <h2 className="text-5xl md:text-6xl font-black mb-8 leading-tight tracking-tight">
+                    <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tight">
                         ELEVE O NÍVEL DA <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">SUA EMPRESA.</span>
                     </h2>
-                    <p className="text-xl text-white/60 mb-8 leading-relaxed font-light">
+                    <p className="text-lg md:text-xl text-white/60 mb-8 leading-relaxed font-light">
                         Site premium, CRM integrado, automações, SEO técnico e estrutura de conversão. Não entregamos apenas código, entregamos um ativo digital.
                     </p>
 
-                    <ul className="space-y-5 mb-12">
+                    <ul className="space-y-4 md:space-y-5 mb-12">
                         {['Arquitetura de Conversão & UX', 'Desenvolvimento Next.js High-End', 'Implementação de CRM & Funis', 'Dashboards de Performance'].map((item, i) => (
-                            <li key={i} className="flex items-center gap-4 text-lg font-light text-white/80">
-                                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#39FF14]/20 text-[#39FF14]">
+                            <li key={i} className="flex items-center gap-4 text-base md:text-lg font-light text-white/80">
+                                <span className="flex items-center justify-center min-w-[24px] w-6 h-6 rounded-full bg-[#39FF14]/20 text-[#39FF14]">
                                     <CheckCircle2 size={14} />
                                 </span>
                                 {item}
@@ -51,10 +51,10 @@ export default function Process() {
                     </ul>
 
                     <motion.a
-                        href="https://wa.me/5511999999999"
+                        href="https://wa.me/5511972362554"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold text-sm uppercase tracking-widest rounded-full hover:bg-[#39FF14] hover:shadow-[0_0_30px_rgba(57,255,20,0.4)] transition-all duration-300 group"
+                        className="inline-flex items-center justify-center gap-3 w-full md:w-auto px-8 py-4 bg-white text-black font-bold text-sm uppercase tracking-widest rounded-full hover:bg-[#39FF14] hover:shadow-[0_0_30px_rgba(57,255,20,0.4)] transition-all duration-300 group"
                     >
                         Solicitar Consultoria <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </motion.a>
