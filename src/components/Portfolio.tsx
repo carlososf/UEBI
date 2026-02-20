@@ -63,6 +63,14 @@ const projects = [
         link: 'https://carlososf.github.io/advogado-v1/',
         size: 'col-span-1 md:col-span-2',
         stats: { problem: 'Falta de Autoridade', solution: 'Experiência Imersiva', result: 'Leads Qualificados' }
+    },
+    {
+        id: 7,
+        name: 'VETCLINIC',
+        cat: 'Saúde',
+        link: 'https://carlososf.github.io/VETCLINIC/',
+        size: 'col-span-1',
+        stats: { problem: 'Clínica Tradicional', solution: 'Site Moderno', result: 'Agendamentos' }
     }
 ];
 
