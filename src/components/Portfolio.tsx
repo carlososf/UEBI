@@ -71,6 +71,14 @@ const projects = [
         link: 'https://carlososf.github.io/VETCLINIC/',
         size: 'col-span-1',
         stats: { problem: 'Clínica Tradicional', solution: 'Site Moderno', result: 'Agendamentos' }
+    },
+    {
+        id: 8,
+        name: 'Boteco Premium',
+        cat: 'Comida',
+        link: 'https://boteco1.vercel.app/',
+        size: 'col-span-1 md:col-span-2',
+        stats: { problem: 'Cardápio Estático', solution: 'Experiência Digital', result: 'Aumento de Pedidos' }
     }
 ];
 
