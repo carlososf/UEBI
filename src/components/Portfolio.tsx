@@ -54,15 +54,15 @@ export default function Portfolio() {
         : projects.filter(p => p.cat === activeCategory);
 
     return (
-        <section className="py-32 bg-[#050505] relative text-white" id="portfolio">
+        <section className="py-32 bg-[#FAFAFA] relative text-black" id="portfolio">
             <div className="max-w-7xl mx-auto px-4 mb-12 flex flex-col md:flex-row items-end justify-between gap-8">
                 <div>
-                    <span className="text-[#39FF14] font-mono text-xs tracking-widest uppercase mb-4 block">// SELECTED WORK</span>
+                    <span className="text-[#10A000] font-mono text-xs tracking-widest uppercase mb-4 block">// SELECTED WORK</span>
                     <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[1] md:leading-[0.9]">
-                        CASES QUE <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">FALAM POR SI.</span>
+                        CASES QUE <span className="text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-600">FALAM POR SI.</span>
                     </h2>
                 </div>
-                <p className="text-white/40 max-w-sm text-sm font-light leading-relaxed">
+                <p className="text-black/50 max-w-sm text-sm font-light leading-relaxed">
                     Nossos projetos combinam estética premium com engenharia de conversão.
                 </p>
             </div>
@@ -75,8 +75,8 @@ export default function Portfolio() {
                             key={category}
                             onClick={() => setActiveCategory(category)}
                             className={`px-6 py-2.5 rounded-full text-sm font-mono tracking-wider transition-all duration-300 border ${activeCategory === category
-                                ? 'bg-[#39FF14] text-black border-[#39FF14]'
-                                : 'bg-black/50 text-white/60 border-white/10 hover:border-white/30 hover:text-white'
+                                ? 'bg-black text-white border-black'
+                                : 'bg-black/5 text-black/60 border-black/10 hover:border-black/30 hover:text-black'
                                 }`}
                         >
                             {category}
@@ -95,7 +95,7 @@ export default function Portfolio() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.4 }}
-                            className={`${p.size} min-h-[350px] md:min-h-[500px] relative group rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A]`}
+                            className={`${p.size} min-h-[350px] md:min-h-[500px] relative group rounded-2xl overflow-hidden border border-black/10 bg-black text-white`}
                         >
                             {/* Image Background */}
                             <div className="absolute inset-0">
@@ -150,16 +150,16 @@ export default function Portfolio() {
                         animate={{ opacity: 1 }}
                         className="col-span-1 md:col-span-2 lg:col-span-3 py-20 text-center"
                     >
-                        <p className="text-white/40 font-mono">Nenhum case disponível para esta categoria no momento.</p>
+                        <p className="text-black/40 font-mono">Nenhum case disponível para esta categoria no momento.</p>
                     </motion.div>
                 )}
             </div>
 
             <div className="text-center mt-24">
-                <button className="relative px-8 py-4 bg-transparent text-white font-bold uppercase tracking-widest text-sm group overflow-hidden">
+                <button className="relative px-8 py-4 bg-transparent text-black font-bold uppercase tracking-widest text-sm group overflow-hidden">
                     <span className="relative z-10 group-hover:text-black transition-colors duration-300">Ver Todos os Projetos</span>
                     <div className="absolute inset-0 bg-[#39FF14] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
-                    <div className="absolute inset-0 border border-white/20 group-hover:border-[#39FF14] transition-colors duration-300 pointer-events-none" />
+                    <div className="absolute inset-0 border border-black/20 group-hover:border-[#39FF14] transition-colors duration-300 pointer-events-none" />
                 </button>
             </div>
         </section>
