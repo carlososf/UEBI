@@ -17,14 +17,14 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'UEBI STUDIO | Sites do Futuro',
+  title: 'UEBI STUDIO | Seu amigo na digitalização',
   description: 'Transformo presença digital em máquina de conversão: site ultra rápido, visual premium e automações.',
   icons: {
     icon: '/logo-uebi.png',
     apple: '/logo-uebi.png',
   },
   openGraph: {
-    title: 'UEBI STUDIO | Sites do Futuro',
+    title: 'UEBI STUDIO | Seu amigo na digitalização',
     description: 'Transformo presença digital em máquina de conversão: site ultra rápido, visual premium e automações.',
     url: 'https://uebistudio.com.br',
     siteName: 'UEBI STUDIO',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'UEBI STUDIO | Sites do Futuro',
+    title: 'UEBI STUDIO | Seu amigo na digitalização',
     description: 'Transformo presença digital em máquina de conversão: site ultra rápido, visual premium e automações.',
     images: ['/logo-uebi.png'],
   },
