@@ -84,9 +84,17 @@ const projects = [
         id: 9,
         name: 'Advogado Criminal',
         cat: 'Advogado',
-        link: 'https://carlososf.github.io/advogado-v1/',
+        link: 'https://advogado-criminal-v4.vercel.app/',
         size: 'col-span-1',
         stats: { problem: 'Falta de Presença', solution: 'Landing Page', result: 'Credibilidade' }
+    },
+    {
+        id: 10,
+        name: 'Psicologia',
+        cat: 'Psicologia',
+        link: 'https://psicologo-v1.vercel.app/',
+        size: 'col-span-1 md:col-span-2',
+        stats: { problem: 'Agenda Vazia', solution: 'Captação Ativa', result: 'Pacientes Qualificados' }
     }
 ];
 
