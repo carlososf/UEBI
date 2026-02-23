@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import InjesoproImg from '@/assets/portfolio-injesopro.png';
+
 
 const categories = [
     'Todos',
@@ -37,9 +39,11 @@ const projects = [
         name: 'Injesopro',
         cat: 'Indústria',
         link: 'https://injesopro.com.br/',
+        image: InjesoproImg.src,
         size: 'col-span-1 md:col-span-2',
         stats: { problem: 'Sem Presença', solution: 'E-commerce', result: 'Vendas Online' }
     },
+
     {
         id: 4,
         name: 'L´atelier',
@@ -154,7 +158,8 @@ export default function Portfolio() {
                             {/* Image Background */}
                             <div className="absolute inset-0">
                                 <img
-                                    src={`https://s.wordpress.com/mshots/v1/${encodeURIComponent(p.link)}?w=1200`}
+                                    src={p.image || `https://s.wordpress.com/mshots/v1/${encodeURIComponent(p.link)}?w=1200`}
+
                                     alt={`Preview do projeto ${p.name}`}
                                     loading="lazy"
                                     className="w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 pointer-events-none"
