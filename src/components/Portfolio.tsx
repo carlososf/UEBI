@@ -1,7 +1,7 @@
 'use client';
-import { useState, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ArrowUpRight, Plus, ExternalLink } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import InjesoproImg from '@/assets/portfolio-injesopro.png';
 
 const categories = [
@@ -24,6 +24,15 @@ const projects = [
         size: 'md:col-span-8',
         stats: { problem: 'Layout Genérico', solution: 'Design Sensorial', result: '+85% Engajamento' },
         color: '#1F5E3B'
+    },
+    {
+        id: 11,
+        name: 'Mente Segura',
+        cat: 'Psicologia',
+        link: 'https://psicologo-v1.vercel.app/',
+        size: 'md:col-span-4',
+        stats: { problem: 'Falta de Confiança', solution: 'Design Terapêutico', result: 'Agenda Lotada' },
+        color: '#2a4a5a'
     },
     {
         id: 2,
@@ -49,7 +58,7 @@ const projects = [
         cat: 'Indústria',
         link: 'https://injesopro.com.br/',
         image: InjesoproImg.src,
-        size: 'md:col-span-8',
+        size: 'md:col-span-4',
         stats: { problem: 'Sem Presença', solution: 'E-commerce High-End', result: 'Vendas 24/7' },
         color: '#1a1a1a'
     },
@@ -109,17 +118,38 @@ const projects = [
     }
 ];
 
+const INITIAL_LIMIT = 4;
+const INCREMENT = 2;
+
 export default function Portfolio() {
     const [activeCategory, setActiveCategory] = useState('Todos');
+    const [displayLimit, setDisplayLimit] = useState(INITIAL_LIMIT);
     const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
+    const categoryRef = useRef<HTMLDivElement>(null);
 
     const filteredProjects = activeCategory === 'Todos'
         ? projects
         : projects.filter(p => p.cat === activeCategory);
+
+    const visibleProjects = activeCategory === 'Todos'
+        ? filteredProjects.slice(0, displayLimit)
+        : filteredProjects;
+
+    const hasMore = activeCategory === 'Todos' && displayLimit < filteredProjects.length;
+
+    useEffect(() => {
+        // Reset limit when changing category
+        setDisplayLimit(INITIAL_LIMIT);
+    }, [activeCategory]);
+
+    const handleLoadMore = () => {
+        if (hasMore) {
+            setDisplayLimit(prev => prev + INCREMENT);
+        } else if (activeCategory === 'Todos') {
+            // Volta para o topo das categorias
+            categoryRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <section
@@ -161,7 +191,7 @@ export default function Portfolio() {
             </div>
 
             {/* Categorias / Filtro - World Class UI */}
-            <div className="max-w-[1400px] mx-auto px-6 mb-20">
+            <div ref={categoryRef} className="max-w-[1400px] mx-auto px-6 mb-20">
                 <div className="flex flex-wrap gap-3 items-center border-b border-black/5 dark:border-white/5 pb-8">
                     {categories.map((category) => (
                         <button
@@ -187,7 +217,7 @@ export default function Portfolio() {
             {/* Grid Assimétrico Moderno */}
             <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
                 <AnimatePresence mode="popLayout">
-                    {filteredProjects.map((p, i) => (
+                    {visibleProjects.map((p, i) => (
                         <motion.a
                             href={p.link}
                             target="_blank"
@@ -199,10 +229,8 @@ export default function Portfolio() {
                             transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
                             className={`${p.size} group relative aspect-[16/10] md:aspect-auto md:h-[600px] rounded-[32px] overflow-hidden bg-[#111] border border-black/5 dark:border-white/5 block`}
                         >
-                            {/* Overlay de gradiente inteligente */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
 
-                            {/* Imagem de Fundo com Parallax e Zoom */}
                             <div className="absolute inset-0 overflow-hidden">
                                 <motion.img
                                     src={p.image || `https://s.wordpress.com/mshots/v1/${encodeURIComponent(p.link)}?w=1200`}
@@ -211,7 +239,6 @@ export default function Portfolio() {
                                 />
                             </div>
 
-                            {/* Conteúdo do Card - World Class Hierarchy */}
                             <div className="relative z-20 h-full p-8 md:p-12 flex flex-col justify-between">
                                 <div className="flex justify-between items-start">
                                     <div className="px-5 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/10 text-[10px] font-black uppercase tracking-[0.2em] text-white">
@@ -234,7 +261,6 @@ export default function Portfolio() {
                                         ))}
                                     </h3>
 
-                                    {/* Stats Grid - Revelação elegante no hover */}
                                     <div className="grid grid-cols-2 md:grid-cols-3 gap-6 opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-0 transition-all duration-700 border-t border-white/10 pt-8 mt-4">
                                         <div>
                                             <span className="text-[10px] text-white/40 uppercase tracking-widest block mb-1">Problema</span>
@@ -252,14 +278,13 @@ export default function Portfolio() {
                                 </div>
                             </div>
 
-                            {/* Hover Border Glow */}
                             <div className="absolute inset-0 border-2 border-[#39FF14]/0 group-hover:border-[#39FF14]/30 rounded-[32px] transition-colors duration-700 pointer-events-none z-30" />
                         </motion.a>
                     ))}
                 </AnimatePresence>
             </div>
 
-            {/* CTA Final */}
+            {/* Botão de "Carregar Mais" / "Ver Categorias" */}
             <motion.div
                 className="text-center mt-32"
                 initial={{ opacity: 0, y: 20 }}
@@ -267,8 +292,13 @@ export default function Portfolio() {
                 viewport={{ once: true }}
             >
                 <div className="inline-block relative group">
-                    <button className="relative px-16 py-8 bg-black dark:bg-white text-white dark:text-black font-black uppercase tracking-[0.2em] text-sm overflow-hidden transition-all duration-500 hover:pr-24">
-                        <span className="relative z-10">Explorar Portfólio Completo</span>
+                    <button
+                        onClick={handleLoadMore}
+                        className="relative px-16 py-8 bg-black dark:bg-white text-white dark:text-black font-black uppercase tracking-[0.2em] text-sm overflow-hidden transition-all duration-500 hover:pr-24 cursor-pointer"
+                    >
+                        <span className="relative z-10">
+                            {hasMore ? 'Exibir Mais Projetos' : 'Ver Categorias'}
+                        </span>
                         <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500">
                             <ArrowUpRight className="w-6 h-6" />
                         </div>
