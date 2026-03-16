@@ -13,7 +13,7 @@ export default function PricingBanner() {
                 }}
                 className="flex whitespace-nowrap w-max"
             >
-                {[...Array(4)].map((_, i) => (
+                {Array.from({ length: 4 }).map((_, i) => (
                     <div key={i} className="flex items-center mx-4">
                         <span className="text-sm md:text-base font-mono tracking-widest uppercase mx-8">
                             ACEITAMOS PIX, CRÉDITO E DÉBITO

@@ -23,7 +23,7 @@ export default function QuickQuote() {
                         SELECIONE O SEU <span className="text-transparent bg-clip-text bg-gradient-to-r from-black dark:from-white to-gray-500">NICHO ABAIXO.</span>
                     </h2>
                     <p className="text-black/60 dark:text-white/60 mb-8 max-w-lg font-light leading-relaxed">
-                        Escolha sua área de atuação iniciar uma cotação rápida pelo WhatsApp.
+                        Escolha sua área de atuação para iniciar uma cotação rápida pelo WhatsApp.
                         Temos a estrutura digital perfeita para transformar o seu negócio.
                     </p>
 
