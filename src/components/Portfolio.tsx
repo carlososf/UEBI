@@ -115,6 +115,15 @@ const projects = [
         size: 'md:col-span-7',
         stats: { problem: 'Offline', solution: 'Lid Magnético', result: 'Autoridade' },
         color: '#111'
+    },
+    {
+        id: 12,
+        name: 'Dom Fratello',
+        cat: 'Comida',
+        link: 'https://domfratello.com.br/',
+        size: 'md:col-span-5',
+        stats: { problem: 'Design Aberto', solution: 'Experiência Sensorial', result: 'Clientes Premium' },
+        color: '#2b1d1d'
     }
 ];
 
